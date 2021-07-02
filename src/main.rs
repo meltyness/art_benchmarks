@@ -1,5 +1,5 @@
-use art::mix;
-use art::PrimaryColor;
+use art_benchmarks::mix;
+use art_benchmarks::PrimaryColor;
 
 fn main() {
     println!("Hello, world!");

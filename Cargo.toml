@@ -1,0 +1,12 @@
+[package]
+name = "art_benchmarks"
+version = "0.1.0"
+edition = "2018"
+license = "MIT OR Apache-2.0"
+authors = ["Meltyness <github, libera>"]
+repository = "https://github.com/meltyness/art_benchmarks"
+description = "Demonstration of various benchmarks of solutions to the Primary/Secondary color enum problem"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]

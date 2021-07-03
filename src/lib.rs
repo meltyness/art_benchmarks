@@ -50,6 +50,36 @@ pub mod utils {
         SecondaryColor::Green
     }
 
+    pub fn mix_dumb_arr(mixture: &[PrimaryColor]) -> SecondaryColor {
+        use PrimaryColor::*;
+        use SecondaryColor::*;
+
+        match mixture {
+            [Red, Blue] => Purple,
+            [Blue, Red] => Purple,
+            [Red, Yellow] => Orange,
+            [Yellow, Red] => Orange,
+            [Blue, Yellow] => Green,
+            [Yellow, Blue] => Green,
+            _ => panic!("That's not possible"),
+        }
+    }
+
+    pub fn mix_dumb(c1: PrimaryColor, c2: PrimaryColor) -> SecondaryColor {
+        use PrimaryColor::*;
+        use SecondaryColor::*;
+
+        match [c1, c2] {
+            [Red, Blue] => Purple,
+            [Blue, Red] => Purple,
+            [Red, Yellow] => Orange,
+            [Yellow, Red] => Orange,
+            [Blue, Yellow] => Green,
+            [Yellow, Blue] => Green,
+            _ => panic!("That's not possible"),
+        }
+    }
+
     pub fn mix_match(c1: PrimaryColor, c2: PrimaryColor) -> SecondaryColor {
         if c1 == c2 {
             panic!("That's not possible!");

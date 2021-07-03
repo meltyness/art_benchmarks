@@ -1,4 +1,5 @@
 #![feature(test)]
+#![feature(array_zip)]
 //! # Art
 //!
 //! A library for modeling artistic concepts.
@@ -12,11 +13,28 @@ mod tests;
 
 pub mod kinds {
     /// The primary colors according to the RYB color model.
+    use std::ops::Add;
     #[derive(Debug, PartialEq, PartialOrd)]
     pub enum PrimaryColor {
         Red,
         Yellow,
         Blue,
+    }
+
+    impl Add for PrimaryColor {
+        type Output = SecondaryColor;
+
+        fn add(self, other: PrimaryColor) -> SecondaryColor {
+            use PrimaryColor::*;
+            use SecondaryColor::*;
+            
+            match (self, other) {
+                (Red, Blue)    | (Blue, Red)    => Purple,
+                (Red, Yellow)  | (Yellow, Red)  => Orange,
+                (Blue, Yellow) | (Yellow, Blue) => Green,
+                _ => panic!("This is not happening"),
+            }
+        }
     }
 
     /// The secondary colors according to the RYB color model.

@@ -14,6 +14,18 @@ mod tests {
     const TEST_COUNT : i32 = 1000000;
     
     #[bench]
+    fn bench_pretty(b: &mut test::Bencher) {
+        b.iter(|| {
+            for _i in 1..TEST_COUNT {
+                if test::black_box(PrimaryColor::Red) + test::black_box(PrimaryColor::Blue)
+                    == test::black_box(PrimaryColor::Blue) + test::black_box(PrimaryColor::Red)
+                {
+                }
+            }
+        });
+    }
+
+    #[bench]
     fn bench_match_arr_dumb(b: &mut test::Bencher) {
         b.iter(|| {
             for _i in 1..TEST_COUNT {
